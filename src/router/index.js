@@ -21,10 +21,20 @@ router.beforeEach((to,from,next)=>{
     // token存在，登录过了，不能再去login
     if(to.path == '/login'){
       // 想跳转到login,返回到首页
-      next('/');
+      next('/home');
+    }else{
+      next();
     }
+  }else{
+    if(to.path == '/login'){
+      next();
+    }else{
+      next(false);
+    }
+
   }
-  next();
+  // next();
+
 
 })
 
