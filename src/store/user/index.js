@@ -4,7 +4,8 @@ import {
   reqUserState,
   addUser,
   reqEditUser,
-  reqDeleteUser
+  reqDeleteUser,
+  reqSetRoles
 } from '@/api/user.js';
 import {setToken,getToken,removeToken} from '@/utils/token';
 
@@ -108,7 +109,16 @@ const actions = {
     }else{
       return Promise.reject(result.meta.msg);
     }
-  }
+  },
+  // 分配用户角色
+  setRoles:async  function({commit},{id,rid}){
+    const result = await reqSetRoles(id,rid);
+    if(result.meta.status == 200){
+      return result.meta.msg;
+    }else{
+      Promise.reject(result.meta.msg);
+    }
+  },
 
 
 

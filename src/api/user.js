@@ -43,12 +43,20 @@ const reqDeleteUser = (id) => request({
   method: 'DELETE'
 });
 
+// 分配用户角色
+const reqSetRoles = (id,data) => request({
+  url:`users/${id}/role`,
+  method: 'PUT',
+  data
+});
+
 export {
   reqUserLogin,
   reqUserList,
   reqUserState,
   addUser,
   reqEditUser,
-  reqDeleteUser
+  reqDeleteUser,
+  reqSetRoles
 }
 

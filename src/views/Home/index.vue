@@ -121,6 +121,7 @@ export default {
 
 <style scoped lang="less">
   .el-container{
+    overflow-y: hidden;
     height: 100vh;
     .el-header{
       background-color: #373d41;
@@ -164,6 +165,7 @@ export default {
       }
     }
     .el-main {
+      min-width: 900px;
       background-color: #eaedf1;
       color: #333;
     }
