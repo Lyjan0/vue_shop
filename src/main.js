@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from '@/router/index.js';
 import store from '@/store/index.js';
 import '@/assets/fonts/iconfont.css';
+import 'element-ui/lib/theme-chalk/index.css'
 
 import axios from 'axios';
 
@@ -37,9 +38,11 @@ import {
   Tag,
   Tree,
   Select,
-  Option
+  Option,
+  Cascader
 } from 'element-ui';
 
+import TreeTable from 'vue-table-with-tree-grid';
 Vue.use(Button);
 Vue.use(Form);
 Vue.use(FormItem);
@@ -66,6 +69,7 @@ Vue.use(Tag);
 Vue.use(Tree);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Cascader);
 
 
 
@@ -74,6 +78,7 @@ Vue.use(Option);
 Vue.prototype.$message = Message;
 Vue.prototype.$confirm = MessageBox.confirm;
 
+Vue.component('tree-table',TreeTable);
 
 
 
