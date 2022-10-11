@@ -86,24 +86,10 @@
           >
           <template slot-scope='{row}'>
             <el-tag
-              :key="index"
-              v-for="(tag,index) in row.attr_vals"
-              closable
               :disable-transitions="false"
               @close="handleClose(index,row)">
-              {{tag}}
+              {{row.attr_vals}}
             </el-tag>
-            <el-input
-              class="input-new-tag"
-              v-if="row.inputVisible"
-              v-model="row.inputValue"
-              ref="saveTagInput"
-              size="small"
-              @keyup.enter.native="handleInputConfirm(row)"
-              @blur="handleInputConfirm(row)"
-            >
-            </el-input>
-            <el-button v-else class="button-new-tag" size="small" @click="showInput(row)">+ New Tag</el-button>
           </template>
           </el-table-column>
           <el-table-column

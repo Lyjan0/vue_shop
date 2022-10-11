@@ -34,6 +34,7 @@ let routes = [
         path:'/goods',
         name:'Goods',
         component: () => import('@/views/Home/Goods/index'),
+
       },
       {
         path:'/params',
@@ -55,6 +56,11 @@ let routes = [
         name:'Reports',
         component: () => import('@/views/Home/Reports/index'),
       },
+      {
+        path:'/goods/add',
+        name:'Add',
+        component: ()=> import('@/views/Home/Goods/Add/index'),
+      }
     ]
   },
   {

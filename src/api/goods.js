@@ -38,12 +38,39 @@ const reqEditAttributes = ({id,attrId,data}) => request({
 const reqDeleteAttributes = ({id,attrid}) => request({
   url:`categories/${id}/attributes/${attrid}`,
   method:'DELETE',
-})
+});
+
+// 获取商品列表数据
+const reqGoodsList = (params)=> request({
+  url:'goods',
+  method: 'GET',
+  params,
+});
+
+// 删除商品
+const reqDeleteGoods= (id) => request({
+  url:`goods/${id}`,
+  method: 'DELETE'
+});
+
+// 添加商品
+const reqAddGoods = (data) =>request({
+  url:'goods',
+  method: 'POST',
+  data
+});
+
+
+
+
 export{
   reqCategories,
   reqAddCategories,
   reqTabsPaneList,
   reqAddAttributes,
   reqEditAttributes,
-  reqDeleteAttributes
+  reqDeleteAttributes,
+  reqGoodsList,
+  reqDeleteGoods,
+  reqAddGoods
 }

@@ -5,10 +5,17 @@ import store from '@/store/index.js';
 import '@/assets/fonts/iconfont.css';
 import 'element-ui/lib/theme-chalk/index.css'
 
-import axios from 'axios';
+import VueQuillEditor from 'vue-quill-editor'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/';
-Vue.prototype.$http = axios;
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+// import axios from 'axios';
+
+// axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/';
+// Vue.prototype.$http = axios;
 
 import {
   Button,
@@ -42,7 +49,12 @@ import {
   Cascader,
   Alert,
   Tabs,
-  TabPane
+  TabPane,
+  Steps,
+  Step,
+  CheckboxGroup,
+  Checkbox,
+  Upload
 } from 'element-ui';
 
 import TreeTable from 'vue-table-with-tree-grid';
@@ -76,8 +88,27 @@ Vue.use(Cascader);
 Vue.use(Alert);
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Step);
+Vue.use(Steps);
+Vue.use(CheckboxGroup);
+Vue.use(Checkbox);
+Vue.use(Upload);
 
+Vue.use(VueQuillEditor);
 
+// 注册时间过滤器
+Vue.filter('dateFormat',function(time){
+  const dt = new Date(time);
+  const yyyy = dt.getFullYear();
+  // 不足的用0补充
+  const mm = (dt.getMonth() + 1 + '').padStart(2,'0');
+  const dd = (dt.getDate() + '').padStart(2,'0');
+  const hh = (dt.getHours() + '').padStart(2,'0');
+  const m = (dt.getMinutes() + '').padStart(2,'0');
+  const ss = (dt.getSeconds() + '').padStart(2,'0');
+
+  return `${yyyy}-${mm}-${dd} ${hh}:${m}:${ss}`
+})
 
 
 
