@@ -4,6 +4,7 @@ import user from '@/store/user';
 import permissions from '@/store/permissions';
 import goods from '@/store/goods';
 import order from '@/store/order';
+import reports from '@/store/reports';
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ export default new Store({
     user,
     permissions,
     goods,
-    order
+    order,
+    reports
   }
 });
