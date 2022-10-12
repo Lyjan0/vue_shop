@@ -3,6 +3,7 @@ import Vue from 'vue';
 import user from '@/store/user';
 import permissions from '@/store/permissions';
 import goods from '@/store/goods';
+import order from '@/store/order';
 
 Vue.use(Vuex);
 
@@ -10,6 +11,7 @@ export default new Store({
   modules:{
     user,
     permissions,
-    goods
+    goods,
+    order
   }
 });
