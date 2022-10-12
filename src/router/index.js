@@ -15,7 +15,6 @@ let router = new VueRouter({
   }
 })
 router.beforeEach((to,from,next)=>{
-  const name = store.state.user.userInfo.name;
   const token = store.state.user.token;
   if(token){
     // token存在，登录过了，不能再去login

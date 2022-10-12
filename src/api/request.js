@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {getToken} from '@/utils/token';
+import nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 const requests = axios.create({
   baseURL:'http://127.0.0.1:8888/api/private/v1/',
@@ -8,13 +10,13 @@ const requests = axios.create({
 
 // 请求拦截器
 requests.interceptors.request.use((config)=>{
-  console.log('正在发请求');
+  nprogress.start();
   config.headers.Authorization = getToken();
   return config;
 });
 // 响应拦截器
 requests.interceptors.response.use((res)=>{
-  console.log('请求结束');
+  nprogress.done();
   return res.data;
 },(err)=>{
   return Promise.reject(new Error(err));
